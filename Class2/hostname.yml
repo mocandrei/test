@@ -1,0 +1,4 @@
+- hosts: centos
+  tasks:
+  - hostname:
+      name: "{{ inventory_hostname }}"
