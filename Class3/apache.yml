@@ -1,0 +1,19 @@
+- hosts: all
+  handlers: 
+  - name: enable and restart
+    systemd:
+      name: httpd
+      enabled: yes
+      state: restarted
+  tasks:
+  - name: install apache
+    yum:
+      name: httpd
+      state: latest
+    notify: enable and restart
+  - name: Install PHP
+    yum:
+      name: php
+      state: latest
+    notify: enable and restart
+  
