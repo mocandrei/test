@@ -2,3 +2,8 @@
   apt:
     name: apache2
     state: present
+- name: Start service httpd, if not started
+  systemd:
+    name: apache2
+    enabled: yes
+    state: started
