@@ -2,3 +2,8 @@
   tasks:
   - name: Include RedHat and Debian
     include_tasks: "{{ ansible_os_family }}.yml"
+  - name: Start service httpd, if not started
+    systemd:
+      name: "{{ package }}"
+      enabled: yes
+      state: started
