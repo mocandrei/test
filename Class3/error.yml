@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+  - shell: "cat mama"
+    register: result
+    ignore_errors: yes
+  - debug:
+      msg: "{{ result }}"
+  - shell: "touch mama"
+    when: result.failed
